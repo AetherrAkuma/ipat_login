@@ -41,6 +41,9 @@ return (
       <Button variant="contained" color="primary" fullWidth onClick={handleLogin}>
         Login
       </Button>
+      <Button variant="contained" color="primary" fullWidth onClick={() => navigate("/")}>
+        Register
+      </Button>
     </Container>
 
 

@@ -20,6 +20,12 @@ const Register = () => {
       alert(response.data.message);
       navigate("/login");
     } catch (error) {
+      // add error handling about username already exist then navigate to login page
+      if (error.response?.data?.message === "Username already exist") {
+        alert("Username already exist, please login");
+        navigate("/login");
+      }
+
       alert(error.response?.data?.message || "Registration Failed");
     }
   };
@@ -31,6 +37,10 @@ const Register = () => {
       <TextField label="Password" type="password" fullWidth margin="normal" value={password} onChange={(e) => setPassword(e.target.value)} />
       <Button variant="contained" color="primary" fullWidth onClick={handleRegister}>
         Register
+      </Button>
+      <></>
+      <Button variant="contained" color="primary" fullWidth onClick={() => navigate("/login")}>
+        Login
       </Button>
     </Container>
   );
